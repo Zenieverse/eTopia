@@ -5,7 +5,8 @@ export type UserRole =
   | 'mentor'
   | 'investor'
   | 'volunteer'
-  | 'organization';
+  | 'organization'
+  | 'innovator';
 
 export interface UserProfile {
   id: string;

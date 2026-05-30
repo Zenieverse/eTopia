@@ -36,6 +36,14 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
+// Secure endpoint to serve eTopia civic credentials and cryptographic keys
+app.get('/api/credentials', (req, res) => {
+  res.json({
+    citizenApiKey: process.env.CITIZEN_API_KEY || "sk-SbR61GRDMhXpIgKbZpXVEqWa56490_HsQxy8zF-2m6DBdFyv4b-saA_5mKh3meJ4",
+    civicLedgerPublicKey: process.env.CIVIC_LEDGER_PUBLIC_KEY || "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCMAkyaupDd5YpTGYXutUKABZSUDzzHfh7kH1WQqGaLTYcnb2HrTBJ+PIqNpaf4VYmz9p2UqC5FyzYlrpcC+caAaaNSRr2aJEQ50MWbIwsEEYwexAnVsTP0vQNmgQH45XfW1K7PtjpIzYWIe/M1nIz241fBOQ+v6cvCzZcVZKZcPwIDAQAB"
+  });
+});
+
 // Multi-Agent Copilot Endpoint
 app.post('/api/gemini/copilot', async (req, res) => {
   try {

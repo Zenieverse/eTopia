@@ -139,15 +139,15 @@ Resolve their doubts with an academic tutoring perspective.`;
   return (
     <div className="space-y-6">
       {/* Intro section */}
-      <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="glass-card bg-gradient-to-r from-indigo-500/10 via-white/[0.01] to-emerald-500/10 p-6 rounded-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center space-x-2.5">
-            <GraduationCap className="h-6 w-6 text-emerald-400" />
+            <GraduationCap className="h-6 w-6 text-indigo-400" />
             <h2 className="text-white text-lg md:text-xl font-bold font-sans tracking-tight">
               Learning & Skills Academy
             </h2>
           </div>
-          <p className="text-slate-400 text-xs mt-1">
+          <p className="text-slate-450 text-xs mt-1.5 leading-relaxed">
             Access curated microlearning classes, query real-time AI tutors continuously, take certification quizzes, and unlock valuable badges on the eTopia chain.
           </p>
         </div>
@@ -160,7 +160,7 @@ Resolve their doubts with an academic tutoring perspective.`;
               setQuizStatus('idle');
               setSelectedOption(null);
             }}
-            className="bg-slate-800 hover:bg-slate-755 text-slate-300 text-xs font-bold px-4 py-2 rounded-xl border border-slate-750 transition focus:outline-none"
+            className="glass-button-secondary text-xs font-bold px-4 py-2.5 rounded-xl transition cursor-pointer"
           >
             ← Back to Courses Room
           </button>
@@ -168,9 +168,9 @@ Resolve their doubts with an academic tutoring perspective.`;
       </div>
 
       {notification && (
-        <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 p-3 rounded-xl text-xs font-mono font-bold flex items-center justify-between">
+        <div className="bg-indigo-500/10 border border-indigo-400/25 text-indigo-300 p-3.5 rounded-xl text-xs font-mono font-bold flex items-center justify-between">
           <span>{notification}</span>
-          <button onClick={() => setNotification(null)}>✕</button>
+          <button onClick={() => setNotification(null)} className="cursor-pointer hover:text-white">✕</button>
         </div>
       )}
 
@@ -184,37 +184,37 @@ Resolve their doubts with an academic tutoring perspective.`;
                 setSelectedCourseId(crs.id);
                 setActiveChapterIndex(0);
               }}
-              className="bg-slate-900 border border-slate-800 p-6 rounded-2xl cursor-pointer hover:border-emerald-500/40 hover:bg-slate-850/30 transition flex flex-col justify-between"
+              className="glass-card p-6 rounded-2xl cursor-pointer hover:border-white/10 hover:bg-white/[0.03] transition flex flex-col justify-between"
             >
               <div>
                 <div className="flex justify-between items-start">
-                  <span className="bg-emerald-500/10 text-emerald-300 font-mono text-[9px] font-bold px-2 py-0.5 rounded uppercase font-semibold">
+                  <span className="bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-mono text-[9px] font-bold px-2 py-0.5 rounded uppercase">
                     {crs.level} LEVEL
                   </span>
-                  <div className="flex items-center space-x-1 text-xs text-slate-500">
-                    <BookOpen className="h-3.5 w-3.5" />
+                  <div className="flex items-center space-x-1.5 text-xs text-slate-450">
+                    <BookOpen className="h-3.5 w-3.5 text-indigo-400" />
                     <span>{crs.chapters.length} Modules</span>
                   </div>
                 </div>
 
-                <h3 className="text-white text-base font-bold mt-4 leading-tight group-hover:text-emerald-400 transition">
+                <h3 className="text-white text-base font-bold mt-4 leading-tight">
                   {crs.title}
                 </h3>
                 <p className="text-slate-400 text-xs mt-1.5 leading-relaxed">
                   {crs.description}
                 </p>
 
-                <p className="text-slate-500 text-[11px] mt-4">
+                <p className="text-slate-505 text-[11px] mt-4">
                   Led by: <span className="text-slate-350 font-semibold">{crs.instructorName}</span>
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-850 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
                 <div>
                   <p className="text-[10px] uppercase font-mono tracking-wider text-slate-500">Reward Pool</p>
                   <p className="text-amber-400 font-mono font-bold text-xs">+{crs.xpWorth} XP Repute</p>
                 </div>
-                <button className="bg-slate-800 hover:bg-slate-750 text-slate-200 text-xs font-bold px-3.5 py-1.5 rounded-xl border border-slate-800">
+                <button className="glass-button-secondary text-xs font-bold px-3.5 py-1.5 rounded-xl cursor-pointer">
                   Access Syllabus
                 </button>
               </div>
@@ -225,8 +225,8 @@ Resolve their doubts with an academic tutoring perspective.`;
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Syllabus navigator */}
-          <div className="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-4">
-            <h3 className="text-white text-xs uppercase font-mono font-bold tracking-wider text-slate-400 border-b border-slate-800 pb-2">
+          <div className="glass-card p-5 rounded-2xl space-y-4">
+            <h3 className="text-white text-xs uppercase font-mono font-bold tracking-wider text-slate-450 border-b border-white/5 pb-2">
               Class chapters progress
             </h3>
             
@@ -243,16 +243,16 @@ Resolve their doubts with an academic tutoring perspective.`;
                       setQuizStatus('idle');
                       setSelectedOption(null);
                     }}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-xl transition text-xs flex items-center justify-between ${
+                    className={`w-full text-left px-3.5 py-2.5 rounded-xl transition text-xs flex items-center justify-between cursor-pointer ${
                       isActive
-                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold'
+                        ? 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-bold shadow-[0_0_8px_#818cf815]'
                         : isPast
-                        ? 'bg-slate-950/20 text-slate-400 font-medium'
-                        : 'text-slate-500 hover:bg-slate-850/40 hover:text-slate-300'
+                        ? 'bg-white/5 text-slate-450 font-medium'
+                        : 'text-slate-500 hover:bg-white/[0.02] hover:text-slate-350'
                     }`}
                   >
                     <span>{idx + 1}. {chap}</span>
-                    {isPast && <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 ml-1.5" />}
+                    {isPast && <CheckCircle2 className="h-4 w-4 text-indigo-455 flex-shrink-0 ml-1.5" />}
                   </button>
                 );
               })}
@@ -265,7 +265,7 @@ Resolve their doubts with an academic tutoring perspective.`;
                 setQuizStatus('idle');
                 setSelectedOption(null);
               }}
-              className="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-bold py-3.5 rounded-xl transition flex items-center justify-center space-x-1.5 focus:outline-none"
+              className="w-full glass-button-primary text-xs font-bold py-3.5 rounded-xl transition flex items-center justify-center space-x-1.5 cursor-pointer"
             >
               <Award className="h-4 w-4" />
               <span>Unlock Milestone Badge (Quiz)</span>
@@ -277,9 +277,9 @@ Resolve their doubts with an academic tutoring perspective.`;
             
             {showQuiz ? (
               /* Multiple Choice Quiz */
-              <div className="bg-slate-900 border border-slate-850 p-6 rounded-2xl">
-                <h4 className="text-white text-base font-bold border-b border-slate-800 pb-3 flex items-center gap-1.5">
-                  <Award className="h-5 w-5 text-emerald-400 animate-bounce" /> Quiz Assessment: {selectedCourse?.title}
+              <div className="glass-card p-6 rounded-2xl border border-white/5">
+                <h4 className="text-white text-base font-bold border-b border-white/5 pb-3 flex items-center gap-1.5">
+                  <Award className="h-5 w-5 text-indigo-400 animate-bounce" /> Quiz Assessment: {selectedCourse?.title}
                 </h4>
 
                 <div className="mt-5 space-y-4">
@@ -298,10 +298,10 @@ Resolve their doubts with an academic tutoring perspective.`;
                               setSelectedOption(opt[0]);
                             }
                           }}
-                          className={`w-full text-left p-3.5 rounded-xl border transition ${
+                          className={`w-full text-left p-3.5 rounded-xl border transition cursor-pointer ${
                             isOptSelected
-                              ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400 font-semibold'
-                              : 'bg-slate-950/40 border-slate-850 text-slate-300 hover:border-slate-800'
+                              ? 'bg-indigo-500/15 border-indigo-400 text-indigo-300 font-semibold'
+                              : 'glass-card-nested border-white/5 text-slate-300 hover:border-white/10'
                           }`}
                         >
                           {opt}
@@ -310,7 +310,7 @@ Resolve their doubts with an academic tutoring perspective.`;
                     })}
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-850">
+                  <div className="flex items-center justify-between pt-4 border-t border-white/5">
                     <span className="text-xs text-slate-500 font-mono">
                       State Score tracker: {quizStatus === 'success' ? '100% ACCURATE' : 'PENDING'}
                     </span>
@@ -319,7 +319,7 @@ Resolve their doubts with an academic tutoring perspective.`;
                       <button
                         onClick={handleQuizSubmit}
                         disabled={!selectedOption}
-                        className="bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-slate-950 text-xs font-bold px-5 py-2 rounded-xl transition"
+                        className="glass-button-primary disabled:opacity-50 text-xs font-bold px-5 py-2.5 rounded-xl transition cursor-pointer"
                       >
                         Submit Test Option
                       </button>
@@ -331,7 +331,7 @@ Resolve their doubts with an academic tutoring perspective.`;
               /* Lesson body with integrated AI Tutor Chat */
               <div className="space-y-6">
                 {/* Lesson body placeholder context */}
-                <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <div className="glass-card p-6 rounded-2xl">
                   <h4 className="text-white text-base font-bold">
                     Chapter Vetting: "{selectedCourse?.chapters[activeChapterIndex]}"
                   </h4>
@@ -341,12 +341,12 @@ Resolve their doubts with an academic tutoring perspective.`;
                 </div>
 
                 {/* AI Tutor Chat */}
-                <div className="bg-slate-950/30 border border-slate-800 rounded-2xl flex flex-col h-[320px] overflow-hidden">
-                  <div className="bg-slate-900 py-2.5 px-4 border-b border-slate-800 flex items-center justify-between">
+                <div className="glass-card p-0 rounded-2xl border border-white/5 flex flex-col h-[320px] overflow-hidden">
+                  <div className="bg-white/[0.02] py-2.5 px-4 border-b border-white/5 flex items-center justify-between">
                     <span className="text-xs text-white font-bold flex items-center gap-1.5">
-                      <Sparkles className="h-4 w-4 text-emerald-400 fill-emerald-400" /> Lesson Copilot Tutor
+                      <Sparkles className="h-4 w-4 text-indigo-455 fill-indigo-400" /> Lesson Copilot Tutor
                     </span>
-                    <span className="bg-emerald-500/10 text-emerald-400 font-mono text-[9px] font-bold px-1.5 py-0.5 rounded">
+                    <span className="bg-indigo-500/10 text-indigo-305 border border-indigo-500/20 font-mono text-[9px] font-bold px-1.5 py-0.5 rounded">
                       ONLINE
                     </span>
                   </div>
@@ -357,11 +357,11 @@ Resolve their doubts with an academic tutoring perspective.`;
                       const isAss = m.sender === 'assistant';
                       return (
                         <div key={index} className={`flex ${isAss ? 'justify-start' : 'justify-end'}`}>
-                          <div className={`p-3 rounded-2xl max-w-[85%] leading-relaxed ${
-                            isAss ? 'bg-slate-900 text-slate-300 border border-slate-850' : 'bg-emerald-500 text-slate-950 font-medium'
+                          <div className={`p-3 rounded-2xl max-w-[85%] leading-relaxed border ${
+                            isAss ? 'glass-card-nested border-white/5 text-slate-300' : 'bg-indigo-500/15 text-indigo-250 border-indigo-400/20 font-medium'
                           }`}>
                             <p>{m.text}</p>
-                            <span className={`text-[8px] block text-right mt-1.5 ${isAss ? 'text-slate-500' : 'text-slate-905/60'}`}>
+                            <span className={`text-[8px] block text-right mt-1.5 ${isAss ? 'text-slate-500' : 'text-indigo-400/65'}`}>
                               {m.timestamp}
                             </span>
                           </div>
@@ -371,8 +371,8 @@ Resolve their doubts with an academic tutoring perspective.`;
 
                     {isTyping && (
                       <div className="flex justify-start">
-                        <div className="bg-slate-900 border border-slate-850 rounded-2xl p-2.5 flex items-center space-x-2 text-[10px] font-mono text-slate-400">
-                          <Loader2 className="h-3.5 w-3.5 animate-spin text-emerald-400" />
+                        <div className="glass-card-nested border-white/5 rounded-2xl p-2.5 flex items-center space-x-2 text-[10px] font-mono text-slate-400">
+                          <Loader2 className="h-3.5 w-3.5 animate-spin text-indigo-400" />
                           <span>AI Tutor drafting response lesson...</span>
                         </div>
                       </div>
@@ -385,19 +385,19 @@ Resolve their doubts with an academic tutoring perspective.`;
                       e.preventDefault();
                       handleTutorSendMessage(tutorInput);
                     }}
-                    className="p-2.5 bg-slate-900 border-t border-slate-850 flex gap-2"
+                    className="p-2.5 bg-white/[0.02] border-t border-white/5 flex gap-2"
                   >
                     <input
                       type="text"
                       value={tutorInput}
                       onChange={e => setTutorInput(e.target.value)}
                       placeholder="Ask our AI Tutor concerning this chapters data..."
-                      className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"
+                      className="flex-1 glass-input rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-550 focus:outline-none"
                     />
                     <button
                       type="submit"
                       disabled={!tutorInput.trim()}
-                      className="bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-slate-950 rounded-xl px-3 py-2 text-xs font-bold transition focus:outline-none"
+                      className="glass-button-primary disabled:opacity-50 rounded-xl px-4 py-2 text-xs font-bold transition cursor-pointer"
                     >
                       Query Tutor
                     </button>
