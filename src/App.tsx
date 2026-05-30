@@ -47,8 +47,26 @@ export default function App() {
   const [activeTab, setActiveTab] = React.useState<string>('hub');
   
   // App state
-  const [profile, setProfile] = React.useState<UserProfile>(INITIAL_PROFILE);
-  const [userRole, setUserRole] = React.useState<UserRole>(INITIAL_PROFILE.role);
+  const [profile, setProfile] = React.useState<UserProfile>(() => {
+    const saved = localStorage.getItem('etopia_active_profile_v1');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error('Failed to parse saved profile:', e);
+      }
+    }
+    return INITIAL_PROFILE;
+  });
+
+  const [userRole, setUserRole] = React.useState<UserRole>(() => {
+    const saved = localStorage.getItem('etopia_active_role_v1');
+    if (saved) {
+      return saved as UserRole;
+    }
+    return INITIAL_PROFILE.role;
+  });
+
   const [jobs, setJobs] = React.useState<FreelanceJob[]>(INITIAL_JOBS);
   const [freelancers, setFreelancers] = React.useState<FreelancerProfile[]>(INITIAL_FREELANCERS);
   const [projects, setProjects] = React.useState<ComActProject[]>(INITIAL_PROJECTS);
@@ -58,9 +76,21 @@ export default function App() {
   const [proposals, setProposals] = React.useState<Proposal[]>(INITIAL_PROPOSALS);
   const [ledgerEntries, setLedgerEntries] = React.useState<ImpactLedgerEntry[]>(INITIAL_LEDGER_ENTRIES);
 
+  // Persist state updates to localStorage
+  React.useEffect(() => {
+    localStorage.setItem('etopia_active_profile_v1', JSON.stringify(profile));
+  }, [profile]);
+
+  React.useEffect(() => {
+    localStorage.setItem('etopia_active_role_v1', userRole);
+  }, [userRole]);
+
   // Common modifier callbacks
   const handleModifyProfile = (updater: Partial<UserProfile>) => {
     setProfile(prev => ({ ...prev, ...updater }));
+    if (updater.role) {
+      setUserRole(updater.role);
+    }
   };
 
   const handleAddJob = (job: FreelanceJob) => {
