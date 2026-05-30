@@ -1,0 +1,6 @@
+{
+  "name": "eTopia",
+  "description": "AI-Powered Digital Civilization Platform combining social and commercial tracks to empower communities through digital inclusion, entrepreneurship, and social innovation.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

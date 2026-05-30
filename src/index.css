@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* 1. Global scrollbars & smooth behavior */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* 2. Frosted Glass theme root classes */
+.frosted-bg {
+  background: radial-gradient(circle at 1% 1%, rgba(26, 35, 126, 0.45) 0%, transparent 40%),
+              radial-gradient(circle at 99% 99%, rgba(27, 94, 32, 0.45) 0%, transparent 40%),
+              radial-gradient(circle at 50% 50%, #06070a 0%, #0e1118 100%) !important;
+}
+
+/* Glass Card styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.035) !important;
+  backdrop-filter: blur(18px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.065) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.glass-card-nested {
+  background: rgba(255, 255, 255, 0.02) !important;
+  backdrop-filter: blur(8px) saturate(110%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(110%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02);
+}
+
+.glass-sidebar {
+  background: rgba(14, 18, 28, 0.45) !important;
+  backdrop-filter: blur(24px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(140%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.glass-header {
+  background: rgba(14, 18, 28, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Glass inputs & buttons */
+.glass-input {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border-color: rgba(129, 140, 248, 0.5) !important;
+  box-shadow: 0 0 16px rgba(129, 140, 248, 0.2);
+  outline: none;
+}
+
+.glass-button-primary {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.8) 0%, rgba(129, 140, 248, 0.8) 100%) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+.glass-button-primary:hover {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(129, 140, 248, 0.95) 100%) !important;
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+  transform: translateY(-1px);
+}
+.glass-button-primary:active {
+  transform: translateY(1px);
+}
+
+.glass-button-secondary {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.2s ease-in-out;
+}
+.glass-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Theme color accents */
+.text-glass-indigo {
+  color: #818cf8 !important;
+}
+.text-glass-emerald {
+  color: #4ade80 !important;
+}
+.impact-number {
+  background: linear-gradient(to right, #ffffff, #94a3b8) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.pill {
+  padding: 4px 12.5px;
+  border-radius: 100px;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: rgba(255, 255, 255, 0.85);
+  display: inline-block;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4caf50;
+  display: inline-block;
+}
