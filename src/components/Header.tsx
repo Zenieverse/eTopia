@@ -25,28 +25,36 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
   const [authNotification, setAuthNotification] = React.useState<string | null>(null);
 
   // Sovereign Custom Roles maps
-  const [customRoles, setCustomRoles] = React.useState<Record<UserRole, { label: string; desc: string; avatarUrl: string }>>(() => {
+  const [customRoles, setCustomRoles] = React.useState<Record<UserRole, { label: string; desc: string; avatarUrl: string; email: string }>>(() => {
     const saved = localStorage.getItem('etopia_custom_roles_v2');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Ensure email exists on parsed roles
+        const upgraded = { ...parsed };
+        Object.keys(upgraded).forEach((key) => {
+          if (!upgraded[key as UserRole].email) {
+            upgraded[key as UserRole].email = upgraded[key as UserRole].role === 'innovator' ? 'nga.nguyen@etopia.org' : 'nga.nguyen@etopia.org';
+          }
+        });
+        return upgraded;
       } catch (e) {
         console.error(e);
       }
     }
     return {
-      member: { label: 'Civic Member', desc: 'Participate, learn, receive career guidance.', avatarUrl: DEFAULT_ROLE_AVATARS.member },
-      volunteer: { label: 'Skilled Volunteer', desc: 'Join global restoration / inclusion missions.', avatarUrl: DEFAULT_ROLE_AVATARS.volunteer },
-      innovator: { label: 'Platform Innovator', desc: 'Propose startup concepts, manage incubator entries, write novel solutions.', avatarUrl: DEFAULT_ROLE_AVATARS.innovator },
-      organization: { label: 'Sponsoring Org', desc: 'Post challenges, hire freelance, launch incubators.', avatarUrl: DEFAULT_ROLE_AVATARS.organization },
-      mentor: { label: 'Expert Mentor', desc: 'Mentor ventures, review deliverables, coach.', avatarUrl: DEFAULT_ROLE_AVATARS.mentor },
-      investor: { label: 'Impact Investor', desc: 'Invest in startups, sponsor ledger matches.', avatarUrl: DEFAULT_ROLE_AVATARS.investor },
-      community_admin: { label: 'Community Manager', desc: 'Moderate local disputes, verify deeds.', avatarUrl: DEFAULT_ROLE_AVATARS.community_admin },
-      super_admin: { label: 'Platform SuperAdmin', desc: 'Manage AI nodes, execute system triggers.', avatarUrl: DEFAULT_ROLE_AVATARS.super_admin },
+      member: { label: 'Civic Member', desc: 'Participate, learn, receive career guidance.', avatarUrl: DEFAULT_ROLE_AVATARS.member, email: 'nga.nguyen@etopia.org' },
+      volunteer: { label: 'Skilled Volunteer', desc: 'Join global restoration / inclusion missions.', avatarUrl: DEFAULT_ROLE_AVATARS.volunteer, email: 'volunteer.nga@etopia.org' },
+      innovator: { label: 'Platform Innovator', desc: 'Propose startup concepts, manage incubator entries, write novel solutions.', avatarUrl: DEFAULT_ROLE_AVATARS.innovator, email: 'nga.nguyen@etopia.org' },
+      organization: { label: 'Sponsoring Org', desc: 'Post challenges, hire freelance, launch incubators.', avatarUrl: DEFAULT_ROLE_AVATARS.organization, email: 'org.nga@etopia.org' },
+      mentor: { label: 'Expert Mentor', desc: 'Mentor ventures, review deliverables, coach.', avatarUrl: DEFAULT_ROLE_AVATARS.mentor, email: 'mentor.nga@etopia.org' },
+      investor: { label: 'Impact Investor', desc: 'Invest in startups, sponsor ledger matches.', avatarUrl: DEFAULT_ROLE_AVATARS.investor, email: 'investor.nga@etopia.org' },
+      community_admin: { label: 'Community Manager', desc: 'Moderate local disputes, verify deeds.', avatarUrl: DEFAULT_ROLE_AVATARS.community_admin, email: 'admin.nga@etopia.org' },
+      super_admin: { label: 'Platform SuperAdmin', desc: 'Manage AI nodes, execute system triggers.', avatarUrl: DEFAULT_ROLE_AVATARS.super_admin, email: 'super.nga@etopia.org' },
     };
   });
 
-  const saveCustomRoles = (updated: Record<UserRole, { label: string; desc: string; avatarUrl: string }>) => {
+  const saveCustomRoles = (updated: Record<UserRole, { label: string; desc: string; avatarUrl: string; email: string }>) => {
     setCustomRoles(updated);
     localStorage.setItem('etopia_custom_roles_v2', JSON.stringify(updated));
   };
@@ -55,6 +63,7 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
   const [editRoleLabel, setEditRoleLabel] = React.useState('');
   const [editRoleDesc, setEditRoleDesc] = React.useState('');
   const [editRoleAvatar, setEditRoleAvatar] = React.useState('');
+  const [editRoleEmail, setEditRoleEmail] = React.useState('');
 
   // Profile Editor state
   const [editModalOpen, setEditModalOpen] = React.useState(false);
@@ -126,6 +135,7 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
     label: customRoles[r.role]?.label || r.label,
     desc: customRoles[r.role]?.desc || r.desc,
     avatarUrl: customRoles[r.role]?.avatarUrl || DEFAULT_ROLE_AVATARS[r.role],
+    email: customRoles[r.role]?.email || 'nga.nguyen@etopia.org',
   }));
 
   const triggerAuthSimulate = (method: string) => {
@@ -138,7 +148,8 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
   const handleRoleChange = (role: UserRole) => {
     setUserRole(role);
     const roleAv = customRoles[role]?.avatarUrl || DEFAULT_ROLE_AVATARS[role];
-    onModifyProfile({ role, avatarUrl: roleAv });
+    const roleMail = customRoles[role]?.email || 'nga.nguyen@etopia.org';
+    onModifyProfile({ role, avatarUrl: roleAv, email: roleMail });
     setDropdownOpen(false);
   };
 
@@ -256,6 +267,17 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
                         />
                       </div>
 
+                      {/* Custom Email */}
+                      <div className="space-y-1">
+                        <label className="text-[9px] font-mono font-bold uppercase text-slate-400">Identity Email</label>
+                        <input
+                          type="email"
+                          value={editRoleEmail}
+                          onChange={(e) => setEditRoleEmail(e.target.value)}
+                          className="w-full bg-black/40 border border-white/5 rounded-lg px-2 py-1.5 text-white font-medium focus:outline-none focus:border-indigo-500"
+                        />
+                      </div>
+
                       {/* Custom Description */}
                       <div className="space-y-1">
                         <label className="text-[9px] font-mono font-bold uppercase text-slate-400">Mission Description</label>
@@ -292,7 +314,31 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
                                 if (file) {
                                   const reader = new FileReader();
                                   reader.onloadend = () => {
-                                    setEditRoleAvatar(reader.result as string);
+                                    const base64 = reader.result as string;
+                                    setEditRoleAvatar(base64);
+                                    
+                                    // Auto-save immediately upon file upload to make it fully bulletproof
+                                    if (editingRole) {
+                                      const updated = {
+                                        ...customRoles,
+                                        [editingRole]: {
+                                          label: editRoleLabel || customRoles[editingRole]?.label || '',
+                                          desc: editRoleDesc || customRoles[editingRole]?.desc || '',
+                                          avatarUrl: base64,
+                                          email: editRoleEmail || customRoles[editingRole]?.email || 'nga.nguyen@etopia.org',
+                                        }
+                                      };
+                                      saveCustomRoles(updated);
+                                      
+                                      if (userRole === editingRole) {
+                                        onModifyProfile({
+                                          avatarUrl: base64,
+                                          email: editRoleEmail || customRoles[editingRole]?.email || 'nga.nguyen@etopia.org',
+                                        });
+                                      }
+                                      setAuthNotification(`Custom image uploaded and instantly persistent.`);
+                                      setTimeout(() => setAuthNotification(null), 3000);
+                                    }
                                   };
                                   reader.readAsDataURL(file);
                                 }
@@ -343,14 +389,16 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
                               label: editRoleLabel,
                               desc: editRoleDesc,
                               avatarUrl: editRoleAvatar || DEFAULT_ROLE_AVATARS[editingRole],
+                              email: editRoleEmail || 'nga.nguyen@etopia.org',
                             }
                           };
                           saveCustomRoles(updated);
                           
-                          // If this edited role IS current active role, immediately modify original profile avatar!
+                          // If this edited role IS current active role, immediately modify original profile avatar and email!
                           if (userRole === editingRole) {
                             onModifyProfile({
                               avatarUrl: editRoleAvatar || DEFAULT_ROLE_AVATARS[editingRole],
+                              email: editRoleEmail || 'nga.nguyen@etopia.org',
                             });
                           }
 
@@ -406,6 +454,7 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
                               setEditRoleLabel(r.label);
                               setEditRoleDesc(r.desc);
                               setEditRoleAvatar(r.avatarUrl);
+                              setEditRoleEmail(customRoles[r.role]?.email || 'nga.nguyen@etopia.org');
                             }}
                             className="p-1 text-slate-400 hover:text-indigo-400 opacity-60 md:opacity-0 group-hover/item:opacity-100 transition duration-150 focus:outline-none cursor-pointer rounded-lg hover:bg-white/10 flex-shrink-0 ml-1"
                           >
