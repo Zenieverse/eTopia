@@ -33,8 +33,12 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
         // Ensure email exists on parsed roles
         const upgraded = { ...parsed };
         Object.keys(upgraded).forEach((key) => {
-          if (!upgraded[key as UserRole].email) {
-            upgraded[key as UserRole].email = upgraded[key as UserRole].role === 'innovator' ? 'nga.nguyen@etopia.org' : 'nga.nguyen@etopia.org';
+          const rKey = key as UserRole;
+          if (rKey === 'innovator') {
+            upgraded[rKey].email = 'nga.nguyen@etopia.org';
+            upgraded[rKey].avatarUrl = upgraded[rKey].avatarUrl || DEFAULT_ROLE_AVATARS.innovator;
+          } else if (!upgraded[rKey].email) {
+            upgraded[rKey].email = 'nga.nguyen@etopia.org';
           }
         });
         return upgraded;

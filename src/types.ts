@@ -68,6 +68,16 @@ export interface FreelanceJob {
 }
 
 // ComAct Project Center
+export interface GitHubActivityLog {
+  id: string;
+  type: 'commit' | 'pr' | 'system';
+  title: string;
+  author: string;
+  date: string;
+  message: string;
+  url?: string;
+}
+
 export interface ComActProject {
   id: string;
   title: string;
@@ -81,6 +91,9 @@ export interface ComActProject {
   joinedTeamMembers: string[]; // User names or IDs
   deliverables: Deliverable[];
   integrationWebhookSimulated: boolean;
+  gitHubRepo?: string;
+  gitHubConnected?: boolean;
+  gitHubSyncLogs?: GitHubActivityLog[];
 }
 
 export interface Deliverable {

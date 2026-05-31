@@ -51,7 +51,12 @@ export default function App() {
     const saved = localStorage.getItem('etopia_active_profile_v2');
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // If the saved profile is old or has a different name/email, ensure "Nga Nguyen" is restored
+        if (!parsed || parsed.name !== 'Nga Nguyen') {
+          return INITIAL_PROFILE;
+        }
+        return parsed;
       } catch (e) {
         console.error('Failed to parse saved profile:', e);
       }
@@ -62,6 +67,11 @@ export default function App() {
   const [userRole, setUserRole] = React.useState<UserRole>(() => {
     const saved = localStorage.getItem('etopia_active_role_v2');
     if (saved) {
+      // If the saved role doesn't correspond to the active profile name, reset to 'innovator'
+      const savedProfileName = localStorage.getItem('etopia_active_profile_v2');
+      if (savedProfileName && !savedProfileName.includes('Nga Nguyen')) {
+        return 'innovator';
+      }
       return saved as UserRole;
     }
     return INITIAL_PROFILE.role;
