@@ -38,7 +38,7 @@ Below is a **production-grade App Canvas prompt** designed for AI Studio, Fireba
 
 ---
 
-Inspiration by the Call to Action of Global Challenges Org back in 2017.
+Inspired by the Call to Action of Global Challenges Org back in 2017.
 
 <img width="960" height="502" alt="IMG_0932" src="https://github.com/user-attachments/assets/2012cd47-2338-4ce6-8a3d-21cd57944de9" />
 
