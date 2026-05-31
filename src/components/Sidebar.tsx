@@ -50,7 +50,7 @@ export default function Sidebar({ activeTab, setActiveTab, userRole }: SidebarPr
         <div className="flex items-center space-x-2">
           <div className="bg-indigo-500/20 border border-indigo-400/30 text-indigo-400 p-1.5 rounded-lg font-bold tracking-tight shadow-[0_0_12px_rgba(129,140,248,0.2)]">eT</div>
           <span className="font-bold text-lg text-white font-sans tracking-wide">eTopia</span>
-          <span className="text-[10px] text-indigo-300 font-sans font-medium px-2 py-0.5 rounded-md bg-indigo-500/10 border border-indigo-500/20 ml-1.5 whitespace-nowrap">For All & By All</span>
+          <span className="text-[10px] text-indigo-300 font-sans font-medium px-2 py-0.5 rounded-md bg-indigo-500/10 border border-indigo-500/20 ml-1.5 whitespace-nowrap">For All - By All</span>
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -74,7 +74,7 @@ export default function Sidebar({ activeTab, setActiveTab, userRole }: SidebarPr
           <div>
             <div className="font-bold text-white text-md tracking-wider flex items-center gap-1.5 flex-wrap">
               <span className="text-glass-indigo">eTopia</span>
-              <span className="text-[10px] text-indigo-400 font-sans font-medium px-1.5 py-0.5 rounded-md bg-indigo-500/10 border border-indigo-500/20 leading-none whitespace-nowrap">For All & By All</span>
+              <span className="text-[10px] text-indigo-400 font-sans font-medium px-1.5 py-0.5 rounded-md bg-indigo-500/10 border border-indigo-500/20 leading-none whitespace-nowrap">For All - By All</span>
               <Sparkles className="h-3 w-3 text-indigo-400 fill-indigo-400" />
             </div>
             <div className="text-[10px] text-slate-400 tracking-wide uppercase font-mono font-bold leading-none mt-1">
