@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Apply default font fallback to body and displays */
+html, body, #root {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), var(--font-sans);
+}
+
 /* 1. Global scrollbars & smooth behavior */
 ::-webkit-scrollbar {
   width: 6px;
