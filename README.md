@@ -34,9 +34,14 @@ Below is a **production-grade App Canvas prompt** designed for AI Studio, Fireba
 
 ## Project Name
 
-**eTopia – AI-Powered Digital Civilization Platform**
+**eTopia – AI-Powered Digital Civilization Platform** For all - By All
 
 ---
+
+Inspiration by the Call to Action of Global Challenges Org back in 2017.
+
+<img width="960" height="502" alt="IMG_0932" src="https://github.com/user-attachments/assets/2012cd47-2338-4ce6-8a3d-21cd57944de9" />
+
 
 ## Project Overview
 
