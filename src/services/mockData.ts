@@ -13,16 +13,16 @@ import {
 
 export const INITIAL_PROFILE: UserProfile = {
   id: 'usr-current',
-  name: 'Alex Rivera',
-  email: 'alex.rivera@etopia.org',
-  role: 'member',
-  impactScore: 685,
-  reputationPoints: 1240,
-  trustScore: 96,
-  xp: 3450,
-  skills: ['TypeScript', 'UI Design', 'Data Analysis', 'Project Planning', 'Climate Advocacy'],
-  bio: 'Social entrepreneur and developer dedicated to building inclusive technology. Active volunteer in local waste management and digital literacy programs.',
-  avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
+  name: 'Nga Nguyen',
+  email: 'nga.nguyen@etopia.org',
+  role: 'innovator',
+  impactScore: 920,
+  reputationPoints: 1850,
+  trustScore: 98,
+  xp: 4850,
+  skills: ['React', 'TypeScript', 'Gemini API', 'Sustainable Tech', 'Startup Growth', 'UI/UX Design'],
+  bio: 'Platform Innovator and software architect. Dedicated to design-driven civic helpers, sustainable startup models, and decentralized social networks.',
+  avatarUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200',
   badges: [
     {
       id: 'bdg-foundation',

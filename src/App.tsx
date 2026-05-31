@@ -48,7 +48,7 @@ export default function App() {
   
   // App state
   const [profile, setProfile] = React.useState<UserProfile>(() => {
-    const saved = localStorage.getItem('etopia_active_profile_v1');
+    const saved = localStorage.getItem('etopia_active_profile_v2');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -60,7 +60,7 @@ export default function App() {
   });
 
   const [userRole, setUserRole] = React.useState<UserRole>(() => {
-    const saved = localStorage.getItem('etopia_active_role_v1');
+    const saved = localStorage.getItem('etopia_active_role_v2');
     if (saved) {
       return saved as UserRole;
     }
@@ -78,11 +78,11 @@ export default function App() {
 
   // Persist state updates to localStorage
   React.useEffect(() => {
-    localStorage.setItem('etopia_active_profile_v1', JSON.stringify(profile));
+    localStorage.setItem('etopia_active_profile_v2', JSON.stringify(profile));
   }, [profile]);
 
   React.useEffect(() => {
-    localStorage.setItem('etopia_active_role_v1', userRole);
+    localStorage.setItem('etopia_active_role_v2', userRole);
   }, [userRole]);
 
   // Common modifier callbacks

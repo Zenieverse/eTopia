@@ -5,7 +5,7 @@ import { Shield, Sparkles, Award, Star, LogIn, Lock, Pencil, X, Plus, Camera, Ch
 const DEFAULT_ROLE_AVATARS: Record<UserRole, string> = {
   member: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
   volunteer: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200',
-  innovator: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+  innovator: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200',
   organization: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=200',
   mentor: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
   investor: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200',
@@ -26,7 +26,7 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
 
   // Sovereign Custom Roles maps
   const [customRoles, setCustomRoles] = React.useState<Record<UserRole, { label: string; desc: string; avatarUrl: string }>>(() => {
-    const saved = localStorage.getItem('etopia_custom_roles_v1');
+    const saved = localStorage.getItem('etopia_custom_roles_v2');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -48,7 +48,7 @@ export default function Header({ userRole, setUserRole, profile, onModifyProfile
 
   const saveCustomRoles = (updated: Record<UserRole, { label: string; desc: string; avatarUrl: string }>) => {
     setCustomRoles(updated);
-    localStorage.setItem('etopia_custom_roles_v1', JSON.stringify(updated));
+    localStorage.setItem('etopia_custom_roles_v2', JSON.stringify(updated));
   };
 
   const [editingRole, setEditingRole] = React.useState<UserRole | null>(null);
