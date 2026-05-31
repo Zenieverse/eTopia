@@ -2,7 +2,8 @@
 <img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
 </div>
 
-<img width="2266" height="1127" alt="IMG_1694" src="https://github.com/user-attachments/assets/8a5cc2bd-98a3-4344-8ff9-5de0f670e6e4" />
+<img width="2266" height="1129" alt="IMG_1695" src="https://github.com/user-attachments/assets/4c02bea0-e1d3-4859-bd9e-42e9fee0f186" />
+
 
 <img width="1774" height="887" alt="IMG_1691" src="https://github.com/user-attachments/assets/22ae37fc-c03c-4a09-b8bf-9a5752fff6d8" />
 
