@@ -198,7 +198,7 @@ eTopia demonstrates how Google's AI ecosystem can be combined to create meaningf
 Technology alone does not change the world. People do. eTopia brings people and AI together to make that change possible.
 
 
-Google Technology Stack Summary (for submission forms):
+Google Technology Stack Summary:
 
 * Google Cloud Vertex AI
 * Gemini 2.x Models
@@ -216,5 +216,3 @@ Google Technology Stack Summary (for submission forms):
 * Google Cloud Run
 * Google Firebase (web/mobile application layer)
 * BigQuery (analytics and impact measurement)
-
-This stack description is usually what judges look for when they ask for the "complete Google tech stack and tools used during development."
