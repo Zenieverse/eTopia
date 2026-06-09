@@ -10,7 +10,7 @@
 This contains everything you need to run your app locally.
 
 View your app: https://etopia-764082783379.us-west1.run.app
-in AI Studio: https://ai.studio/apps/2a813330-32ef-4666-9e6a-d81b7742efcc
+
 
 ## Run Locally
 
